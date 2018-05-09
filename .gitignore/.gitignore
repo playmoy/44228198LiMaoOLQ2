@@ -1,5 +1,8 @@
-for f in *.txt
-Do
-cp $f /Users/new
-mv -v /Users/new/$f /Users/new/$(echo $f | sed 's/^\(.*\)\.txt/ACST890_s1_2018_\1.txt/')
-done
+#!/usr/bin/bash
+filename=current_list
+while read -r line
+do
+    name="$line"
+    echo "Name read from file - $name"
+    cp "./$name" "../../new/ACST890_s1_2018_$name.txt"
+done < "$filename"
